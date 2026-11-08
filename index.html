@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Trophy</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.scene {
+    position: relative;
+    width: min(100vw, 720px);
+    aspect-ratio: 720 / 600;
+}
+
+/* TROPHY ROTATION */
+.trophy {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    left: 15%;
+    bottom: 18%;
+    z-index: 2;
+
+    transform-style: preserve-3d;
+    animation: rotateTrophy 6s linear infinite;
+}
+
+/* BASE - COMPLETELY STILL */
+.base {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+/* CLOCKWISE 360 DEGREE */
+@keyframes rotateTrophy {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <img
+        src="trophy.png"
+        class="trophy"
+        alt="Golden Trophy"
+    >
+
+    <img
+        src="base.png"
+        class="base"
+        alt="Trophy Platform"
+    >
+
+</div>
+
+</body>
+</html>
